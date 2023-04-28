@@ -22,3 +22,21 @@ void Cube(int num)
         count++;
     }
 }
+/* Вариант 2. Этот код может выводить таблицу чисел в нужной степени.
+Console.WriteLine("Введите число: ");
+int numberN = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите степень числа: ");
+int degree = Convert.ToInt32(Console.ReadLine());
+
+NumberPow(numberN, degree);
+
+void NumberPow(int num, int degree)
+{
+   int count = 1;
+   while (count <= num)
+   {
+       Console.WriteLine($"{count,3} | {Math.Pow(count, degree)}");
+       count++;
+   }
+}
+*/
