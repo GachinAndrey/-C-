@@ -34,10 +34,10 @@ void PrintMatrix(double[,] matrix)
         Console.WriteLine();
     }
 }
-
+/*
 double[,] ArithmeticMeanInColumn(double[,] matrix)
 {
-
+    double[] arr = new double[matrix.GetLength(1)];
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
         double sum = 0;
@@ -45,9 +45,22 @@ double[,] ArithmeticMeanInColumn(double[,] matrix)
         {
             sum += matrix[i, j];
         }
-        Console.Write($"{Math.Round(sum / matrix.GetLength(0), 1)} ");
+        arr[j] = Math.Round(sum / matrix.GetLength(0), 1);
+        //Console.Write($"{Math.Round(sum / matrix.GetLength(0), 1)} ");
     }
-    return matrix;
+    //return matrix;
+    PrintArrayRes(arr);
+}
+*/
+
+void PrintArrayRes(double[] array)
+{
+    Console.Write($"[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine("]");
 }
 
 
@@ -65,4 +78,15 @@ int maximum = Convert.ToInt32(Console.ReadLine());
 double[,] array2d = CreateMatrixFormula(rows2, columns2, minimum, maximum);
 PrintMatrix(array2d);
 Console.WriteLine("Среднее арифметическое в столбце:");
-ArithmeticMeanInColumn(array2d);
+//ArithmeticMeanInColumn(array2d);
+double[] arr = new double[array2d.GetLength(1)];
+for (int j = 0; j < array2d.GetLength(1); j++)
+{
+    double sum = 0;
+    for (int i = 0; i < array2d.GetLength(0); i++)
+    {
+        sum += array2d[i, j];
+    }
+    arr[j] = Math.Round(sum / array2d.GetLength(0), 1);
+}
+PrintArrayRes(arr);
